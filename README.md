@@ -32,8 +32,8 @@ python -m uv pip install -r requirements.txt
 $$X \to \mathrm{Linear}(4,8) \to \mathrm{ReLU} \to \mathrm{Linear}(8,3)$$
 
 Позначення:
-- $Y$ — one-hot матриця правильних відповідей;
-- $P$ — матриця ймовірностей (результат softmax).
+- $Y$ - one-hot матриця правильних відповідей;
+- $P$ - матриця ймовірностей (результат softmax).
 
 ### Збережені проміжні значення
 
