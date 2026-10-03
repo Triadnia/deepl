@@ -29,7 +29,7 @@ python -m uv pip install -r requirements.txt
 
 Архітектура мережі:
 
-$$X \to \operatorname{Linear}(4,8) \to \operatorname{ReLU} \to \operatorname{Linear}(8,3)$$
+$$X \to \mathrm{Linear}(4,8) \to \mathrm{ReLU} \to \mathrm{Linear}(8,3)$$
 
 Позначення:
 - $Y$ — one-hot матриця правильних відповідей;
