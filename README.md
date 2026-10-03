@@ -4,14 +4,14 @@
 
 Для відтворення обох реалізацій (правильної та з навмисною помилкою) використовується пакетний менеджер `uv` із зафіксованими залежностями.
 
-**Встановлення середовища та залежностей:**
+Встановлення середовища та залежностей:
 
 ```bash
 python -m pip install uv
 python -m uv pip install -r requirements.txt
 ```
 
-**Команди запуску:**
+Команди запуску:
 
 - Правильна реалізація:
   ```bash
@@ -28,10 +28,9 @@ python -m uv pip install -r requirements.txt
 Для основних перевірок використовується повна навчальна вибірка, тому кількість об’єктів у батчі \( N = 105 \).
 
 Архітектура мережі: 
-$
-[
-X \to \operatorname{Linear}(4, 8) \to \operatorname{ReLU} \to \operatorname{Linear}(8, 3)
-] $
+$$
+[ X \to \operatorname{Linear}(4, 8) \to \operatorname{ReLU} \to \operatorname{Linear}(8, 3) ]
+$$
 
 Позначення:
 - \( Y \) це one-hot матриця правильних відповідей;
