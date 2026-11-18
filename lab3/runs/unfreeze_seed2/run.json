@@ -1,0 +1,139 @@
+{
+  "regime": "unfreeze",
+  "seed": 2,
+  "settings": {
+    "transforms": {
+      "train": "Compose(\n    RandomResizedCrop(size=(160, 160), scale=(0.7, 1.0), ratio=(0.75, 1.3333), interpolation=bilinear, antialias=True)\n    RandomHorizontalFlip(p=0.5)\n    ToTensor()\n    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))\n)",
+      "validation_test": "Compose(\n    Resize(size=(160, 160), interpolation=bilinear, max_size=None, antialias=True)\n    ToTensor()\n    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))\n)"
+    },
+    "model": {
+      "architecture": "torchvision.models.resnet18",
+      "weights": "ResNet18_Weights.IMAGENET1K_V1",
+      "fc": "Linear(in_features=512, out_features=6, bias=True)",
+      "trainable": [
+        "layer4",
+        "fc"
+      ],
+      "eval_modules": [
+        "conv1",
+        "bn1",
+        "layer1",
+        "layer2",
+        "layer3"
+      ],
+      "total_params": 11179590,
+      "trainable_params": 8396806,
+      "batchnorm": {
+        "momentum": 0.1,
+        "eps": 1e-05
+      },
+      "dtype": "torch.float32"
+    },
+    "optimizer": {
+      "class": "AdamW",
+      "groups": [
+        {
+          "modules": [
+            "fc"
+          ],
+          "numel": 3078,
+          "lr": 0.003,
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0.0001,
+          "amsgrad": false,
+          "maximize": false,
+          "foreach": null,
+          "capturable": false,
+          "differentiable": false,
+          "fused": null,
+          "decoupled_weight_decay": true
+        },
+        {
+          "modules": [
+            "layer4"
+          ],
+          "numel": 8393728,
+          "lr": 0.0003,
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0.0001,
+          "amsgrad": false,
+          "maximize": false,
+          "foreach": null,
+          "capturable": false,
+          "differentiable": false,
+          "fused": null,
+          "decoupled_weight_decay": true
+        }
+      ]
+    },
+    "loss": "CrossEntropyLoss(), reduction=mean",
+    "loop": {
+      "epochs": 8,
+      "train_loader": {
+        "batch_size": 32,
+        "shuffle": true,
+        "drop_last": false,
+        "num_workers": 0,
+        "generator": null
+      },
+      "eval_loader": {
+        "batch_size": 64,
+        "shuffle": false,
+        "num_workers": 0
+      },
+      "steps": 304,
+      "lr_schedule": null,
+      "grad_clipping": null,
+      "mixed_precision": false,
+      "label_smoothing": 0.0,
+      "class_weights": null,
+      "early_stopping": null,
+      "checkpoint_selection": "останній (після 8-ї епохи)"
+    }
+  },
+  "code": {
+    "commit": null,
+    "dirty": null
+  },
+  "split_sha256": "148dad92de9a18670c177df9f8757aa6519fb0ea6d74a8ba723cfc4453f0a1bc",
+  "environment": {
+    "python": "3.12.15",
+    "torch": "2.15.0",
+    "torchvision": "0.29.2",
+    "device": "mps",
+    "device_name": "Apple MPS (arm64, macOS-27.2-arm64-arm-64bit)"
+  },
+  "history": {
+    "train_loss": [
+      0.5556253138184547,
+      0.1608568408091863,
+      0.12203654718274871,
+      0.09121945478022099,
+      0.11837294040247798,
+      0.0987471500163277,
+      0.09925247213492791,
+      0.10106812939668695
+    ],
+    "val_f1": [
+      0.900799633176172,
+      0.8961908963968398,
+      0.8949002897741014,
+      0.8936070883435,
+      0.8860403740228161,
+      0.877971726178779,
+      0.8810214064832183,
+      0.8806618196121493
+    ]
+  },
+  "final_train_loss": 0.10106812939668695,
+  "final_val_f1": 0.8806618196121493,
+  "train_time_sec": 34.282365249993745
+}

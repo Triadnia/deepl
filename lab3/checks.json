@@ -1,0 +1,195 @@
+{
+  "device": "mps",
+  "split_ok": true,
+  "initial_loss": {
+    "ln6": 1.791759469228055,
+    "scratch": 2.047884464263916,
+    "frozen": 1.9243943691253662
+  },
+  "params": [
+    {
+      "regime": "scratch",
+      "total": 11179590,
+      "trainable": 11179590,
+      "groups": [
+        {
+          "params": 11179590,
+          "lr": 0.003
+        }
+      ],
+      "frozen_in_optimizer": 0,
+      "matches": true
+    },
+    {
+      "regime": "frozen",
+      "total": 11179590,
+      "trainable": 3078,
+      "groups": [
+        {
+          "params": 3078,
+          "lr": 0.003
+        }
+      ],
+      "frozen_in_optimizer": 0,
+      "matches": true
+    },
+    {
+      "regime": "unfreeze",
+      "total": 11179590,
+      "trainable": 8396806,
+      "groups": [
+        {
+          "params": 3078,
+          "lr": 0.003
+        },
+        {
+          "params": 8393728,
+          "lr": 0.0003
+        }
+      ],
+      "frozen_in_optimizer": 0,
+      "matches": true
+    }
+  ],
+  "changes": {
+    "frozen": [
+      {
+        "module": "conv1",
+        "params_changed": false,
+        "bn_changed": null,
+        "matches": true
+      },
+      {
+        "module": "bn1",
+        "params_changed": false,
+        "bn_changed": false,
+        "matches": true
+      },
+      {
+        "module": "layer1",
+        "params_changed": false,
+        "bn_changed": false,
+        "matches": true
+      },
+      {
+        "module": "layer2",
+        "params_changed": false,
+        "bn_changed": false,
+        "matches": true
+      },
+      {
+        "module": "layer3",
+        "params_changed": false,
+        "bn_changed": false,
+        "matches": true
+      },
+      {
+        "module": "layer4",
+        "params_changed": false,
+        "bn_changed": false,
+        "matches": true
+      },
+      {
+        "module": "fc",
+        "params_changed": true,
+        "bn_changed": null,
+        "matches": true
+      }
+    ],
+    "unfreeze": [
+      {
+        "module": "conv1",
+        "params_changed": false,
+        "bn_changed": null,
+        "matches": true
+      },
+      {
+        "module": "bn1",
+        "params_changed": false,
+        "bn_changed": false,
+        "matches": true
+      },
+      {
+        "module": "layer1",
+        "params_changed": false,
+        "bn_changed": false,
+        "matches": true
+      },
+      {
+        "module": "layer2",
+        "params_changed": false,
+        "bn_changed": false,
+        "matches": true
+      },
+      {
+        "module": "layer3",
+        "params_changed": false,
+        "bn_changed": false,
+        "matches": true
+      },
+      {
+        "module": "layer4",
+        "params_changed": true,
+        "bn_changed": true,
+        "matches": true
+      },
+      {
+        "module": "fc",
+        "params_changed": true,
+        "bn_changed": null,
+        "matches": true
+      }
+    ]
+  },
+  "bn_experiment": {
+    "rows": [
+      {
+        "module": "conv1",
+        "params_changed": false,
+        "bn_changed": null,
+        "matches": true
+      },
+      {
+        "module": "bn1",
+        "params_changed": false,
+        "bn_changed": true,
+        "matches": false
+      },
+      {
+        "module": "layer1",
+        "params_changed": false,
+        "bn_changed": true,
+        "matches": false
+      },
+      {
+        "module": "layer2",
+        "params_changed": false,
+        "bn_changed": true,
+        "matches": false
+      },
+      {
+        "module": "layer3",
+        "params_changed": false,
+        "bn_changed": true,
+        "matches": false
+      },
+      {
+        "module": "layer4",
+        "params_changed": false,
+        "bn_changed": true,
+        "matches": false
+      },
+      {
+        "module": "fc",
+        "params_changed": true,
+        "bn_changed": null,
+        "matches": true
+      }
+    ],
+    "layer1.0.bn1": {
+      "running_mean": 0.09283638000488281,
+      "running_var": 0.12031435966491699
+    }
+  },
+  "all_ok": true
+}
